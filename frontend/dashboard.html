@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Student Study Planner</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-title">
+            <span class="title-main">StudyPulse</span>
+            <span class="title-sub">Planner & Tracker</span>
+          </div>
+        </a>
+        <button class="close-sidebar-btn" id="close-sidebar-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Academic Workspace</span>
+        <a href="dashboard.html" class="nav-link active">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="subjects.html" class="nav-link">
+          <i class="fa-solid fa-book-open"></i>
+          <span>My Subjects</span>
+        </a>
+        <a href="planner.html" class="nav-link">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Study Planner</span>
+        </a>
+        <a href="calendar.html" class="nav-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Calendar</span>
+        </a>
+        <a href="progress.html" class="nav-link">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Progress Tracker</span>
+        </a>
+        <a href="goals.html" class="nav-link">
+          <i class="fa-solid fa-bullseye"></i>
+          <span>Goals & Reminders</span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="profile.html" class="nav-link">
+          <i class="fa-solid fa-user-gear"></i>
+          <span>Profile & Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar" id="sidebar-user-avatar">AL</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebar-user-name">Alex Johnson</div>
+            <div class="user-sub" id="sidebar-user-college">B.Tech CSE</div>
+          </div>
+          <button class="logout-icon-btn logout-btn" title="Logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <h1 class="page-title">Welcome back, <span id="topbar-greeting-name" style="color: var(--primary);">Student</span>! 👋</h1>
+            <p class="page-subtitle">Here is your daily study overview and academic progress</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="topbar-btn topbar-btn-primary" onclick="openQuickTaskModal()">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Study Task</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        <!-- 4 Metric Cards -->
+        <div class="stat-cards-grid">
+          <div class="stat-card">
+            <div class="stat-icon indigo">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Total Subjects</span>
+              <div class="stat-value" id="stat-total-subjects">0</div>
+              <span class="stat-subtext"><a href="subjects.html" style="color: var(--primary); font-weight: 600;">View all courses &rarr;</a></span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Study Tasks</span>
+              <div class="stat-value" id="stat-total-tasks">0</div>
+              <span class="stat-subtext">Across all subjects</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Completed</span>
+              <div class="stat-value" id="stat-completed-tasks">0</div>
+              <span class="stat-subtext" id="stat-completion-rate">0% Completed</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon amber">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Pending Tasks</span>
+              <div class="stat-value" id="stat-pending-tasks">0</div>
+              <span class="stat-subtext" id="stat-overdue-tasks">All on track!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Dashboard Split Grid -->
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px;" class="dashboard-grid-main">
+          <!-- Left Column -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Today's Study Schedule -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title"><i class="fa-solid fa-calendar-day" style="color: var(--primary);"></i> Today's Study Schedule</h2>
+                  <p class="card-subtitle">Check off assignments as you finish them</p>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" onclick="openQuickTaskModal()">
+                  <i class="fa-solid fa-plus"></i> Add Task
+                </button>
+              </div>
+
+              <div id="today-schedule-list">
+                <!-- Dynamically loaded -->
+                <div style="text-align: center; padding: 20px;">
+                  <i class="fa-solid fa-spinner fa-spin" style="color: var(--primary);"></i> Loading schedule...
+                </div>
+              </div>
+            </div>
+
+            <!-- Weekly Study Activity Chart -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title"><i class="fa-solid fa-chart-column" style="color: var(--accent-purple);"></i> Weekly Study Activity</h2>
+                  <p class="card-subtitle">Estimated hours invested across the last 7 days</p>
+                </div>
+                <a href="progress.html" class="btn btn-secondary btn-sm">Full Analytics</a>
+              </div>
+
+              <div style="position: relative; height: 260px; width: 100%;">
+                <canvas id="weeklyActivityChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Upcoming Deadlines -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title"><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning);"></i> Upcoming Deadlines</h2>
+                  <p class="card-subtitle">Assignments and exams requiring priority</p>
+                </div>
+                <a href="planner.html" class="btn btn-secondary btn-sm">Planner</a>
+              </div>
+
+              <div id="upcoming-deadlines-list">
+                <div style="text-align: center; padding: 20px;">
+                  <i class="fa-solid fa-spinner fa-spin" style="color: var(--primary);"></i> Loading deadlines...
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Goals -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title"><i class="fa-solid fa-bullseye" style="color: var(--primary);"></i> Active Study Goals</h2>
+                  <p class="card-subtitle">Weekly & daily target progress</p>
+                </div>
+                <a href="goals.html" class="btn btn-secondary btn-sm">View All</a>
+              </div>
+
+              <div id="dashboard-goals-list">
+                <div style="text-align: center; padding: 20px;">
+                  <i class="fa-solid fa-spinner fa-spin" style="color: var(--primary);"></i> Loading goals...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Quick Add Task Modal -->
+  <div class="modal-overlay" id="quickTaskModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Quick Add Study Task</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form id="quick-task-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="quick-task-title">Task Title *</label>
+            <input type="text" id="quick-task-title" class="form-control" placeholder="e.g. Revise Binary Search Trees" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="quick-task-subject">Subject *</label>
+            <select id="quick-task-subject" class="form-control" required>
+              <option value="">Loading subjects...</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="quick-task-date">Due Date *</label>
+              <input type="date" id="quick-task-date" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quick-task-time">Due Time</label>
+              <input type="time" id="quick-task-time" class="form-control" value="20:00" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="quick-task-priority">Priority</label>
+              <select id="quick-task-priority" class="form-control">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="quick-task-hours">Est. Hours</label>
+              <input type="number" id="quick-task-hours" class="form-control" value="2" min="0.5" max="12" step="0.5" />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

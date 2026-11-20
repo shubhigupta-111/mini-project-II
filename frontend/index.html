@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Study Planner & Progress Tracker</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="landing-body">
+
+  <!-- Landing Navigation -->
+  <nav class="landing-nav">
+    <div class="brand-logo">
+      <div class="brand-icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div class="brand-title">
+        <span class="title-main">StudyPulse</span>
+        <span class="title-sub">Student Study Planner</span>
+      </div>
+    </div>
+
+    <div class="landing-nav-links">
+      <a href="#features" class="landing-nav-link">Features</a>
+      <a href="#modules" class="landing-nav-link">Modules</a>
+      <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-pill">
+      <i class="fa-solid fa-sparkles"></i> College Student Productivity Platform
+    </div>
+    <h1 class="hero-title">
+      Organize Your Studies.<br>
+      <span class="gradient-text">Master Every Subject.</span>
+    </h1>
+    <p class="hero-description">
+      An all-in-one productivity suite for college students to organize daily study schedules, manage courses, set study goals, track assignments, and monitor academic progress with real-time charts.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="register.html" class="btn btn-primary hero-cta-btn">
+        <i class="fa-solid fa-user-plus"></i> Create Student Account
+      </a>
+      <a href="login.html" class="btn btn-secondary hero-cta-btn">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary);"></i> Explore Live Demo
+      </a>
+    </div>
+
+    <!-- UI Preview Banner -->
+    <div class="hero-preview-wrapper">
+      <div class="hero-preview-inner" style="padding: 24px; text-align: left;">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 20px;">
+          <div style="display: flex; gap: 8px;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #EF4444;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #F59E0B;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #10B981;"></span>
+          </div>
+          <span style="font-size: 0.8rem; font-weight: 600; color: #64748B;">Student Dashboard Preview • Semester Academic Tracker</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px;">
+          <div style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <span style="font-size: 0.75rem; color: #64748B; font-weight: 700;">TOTAL COURSES</span>
+            <div style="font-size: 1.6rem; font-weight: 800; color: #4F46E5;">5 Subjects</div>
+          </div>
+          <div style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <span style="font-size: 0.75rem; color: #64748B; font-weight: 700;">STUDY TASKS</span>
+            <div style="font-size: 1.6rem; font-weight: 800; color: #0F172A;">9 Tasks</div>
+          </div>
+          <div style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <span style="font-size: 0.75rem; color: #64748B; font-weight: 700;">COMPLETED</span>
+            <div style="font-size: 1.6rem; font-weight: 800; color: #10B981;">3 Completed</div>
+          </div>
+          <div style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <span style="font-size: 0.75rem; color: #64748B; font-weight: 700;">COMPLETION RATE</span>
+            <div style="font-size: 1.6rem; font-weight: 800; color: #8B5CF6;">33% Overall</div>
+          </div>
+        </div>
+
+        <div style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; background: #EEF2FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #4F46E5; font-size: 1.2rem;">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #0F172A; margin: 0;">Weekly Study Hours Logged</h4>
+              <p style="font-size: 0.8rem; color: #64748B; margin: 0;">Chart.js powered real-time visualization with subject distribution.</p>
+            </div>
+          </div>
+          <a href="login.html" class="btn btn-primary btn-sm">Launch Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <span class="section-badge">Core Capabilities</span>
+      <h2 class="section-title">Engineered for Academic Excellence</h2>
+      <p class="section-subtitle">Everything a student needs to beat procrastination, hit assignment deadlines, and prepare for exams with confidence.</p>
+    </div>
+
+    <div class="features-grid" id="modules">
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #EEF2FF; color: #4F46E5;">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <h3 class="feature-title">Subject Management</h3>
+        <p class="feature-desc">Organize semester courses with custom color tags, credit counts, faculty contacts, and target weekly study hours.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #F5F3FF; color: #8B5CF6;">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <h3 class="feature-title">Study Planner</h3>
+        <p class="feature-desc">Break down assignments and exam preparation into scheduled study tasks with High, Medium, and Low priorities.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #EFF6FF; color: #2563EB;">
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
+        <h3 class="feature-title">Monthly Calendar</h3>
+        <p class="feature-desc">Interactive visual calendar displaying scheduled study tasks, submission deadlines, and single-click day inspections.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #ECFDF5; color: #059669;">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <h3 class="feature-title">Progress Tracker</h3>
+        <p class="feature-desc">Monitor your overall and subject-wise completion rates, daily study streaks, and visual analytics via Chart.js.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #FFFBEB; color: #D97706;">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h3 class="feature-title">Goals & Reminders</h3>
+        <p class="feature-desc">Set daily and weekly study targets, log study hours with 1-click, and get alerts for urgent or overdue assignments.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #ECFEFF; color: #0891B2;">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="feature-title">Secure & Permanent</h3>
+        <p class="feature-desc">Powered by Node.js, Express, MongoDB, and JWT authentication. Your study schedule is safely stored and always accessible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div>
+      <strong>Student Study Planner & Progress Tracker</strong> &bull; B.Tech Computer Science Mini-Project
+    </div>
+    <div style="display: flex; gap: 20px;">
+      <a href="login.html" style="color: var(--primary); font-weight: 600;">Student Login</a>
+      <a href="register.html" style="color: var(--primary); font-weight: 600;">Register</a>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+</body>
+</html>

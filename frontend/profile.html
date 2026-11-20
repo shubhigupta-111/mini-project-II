@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Settings - Student Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-title">
+            <span class="title-main">StudyPulse</span>
+            <span class="title-sub">Planner & Tracker</span>
+          </div>
+        </a>
+        <button class="close-sidebar-btn" id="close-sidebar-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Academic Workspace</span>
+        <a href="dashboard.html" class="nav-link">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="subjects.html" class="nav-link">
+          <i class="fa-solid fa-book-open"></i>
+          <span>My Subjects</span>
+        </a>
+        <a href="planner.html" class="nav-link">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Study Planner</span>
+        </a>
+        <a href="calendar.html" class="nav-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Calendar</span>
+        </a>
+        <a href="progress.html" class="nav-link">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Progress Tracker</span>
+        </a>
+        <a href="goals.html" class="nav-link">
+          <i class="fa-solid fa-bullseye"></i>
+          <span>Goals & Reminders</span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="profile.html" class="nav-link active">
+          <i class="fa-solid fa-user-gear"></i>
+          <span>Profile & Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar" id="sidebar-user-avatar">AL</div>
+          <div class="user-info">
+            <div class="user-name" id="sidebar-user-name">Alex Johnson</div>
+            <div class="user-sub" id="sidebar-user-college">B.Tech CSE</div>
+          </div>
+          <button class="logout-icon-btn logout-btn" title="Logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-toggle" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <h1 class="page-title">Profile & Preferences</h1>
+            <p class="page-subtitle">Manage your student account, college details, and system settings</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="topbar-btn topbar-btn-secondary logout-btn">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <!-- Student Header Card -->
+        <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, #EEF2FF 0%, #FFFFFF 100%);">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #4F46E5, #8B5CF6); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; font-weight: 800; box-shadow: var(--shadow-md);">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div>
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);" id="display-user-name">Student Name</h2>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin: 2px 0 6px;" id="display-user-email">email@college.edu</p>
+              <span class="badge" style="background: #E0E7FF; color: #4338CA;" id="display-user-major">B.Tech CSE &bull; Semester 5</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;" class="dashboard-grid-main">
+          <!-- Left Column: Profile Information -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title"><i class="fa-solid fa-id-card" style="color: var(--primary);"></i> Student Details</h3>
+                <p class="card-subtitle">Keep your college and academic information up to date</p>
+              </div>
+            </div>
+
+            <form id="profile-edit-form">
+              <div class="form-group">
+                <label class="form-label" for="profile-name">Full Name</label>
+                <input type="text" id="profile-name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profile-email">Email Address (Read Only)</label>
+                <input type="email" id="profile-email" class="form-control" disabled style="background: #F1F5F9; cursor: not-allowed;" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="profile-college">College / University</label>
+                  <input type="text" id="profile-college" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profile-major">Major / Branch</label>
+                  <input type="text" id="profile-major" class="form-control" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="profile-semester">Current Semester</label>
+                  <select id="profile-semester" class="form-control">
+                    <option value="Semester 1">Semester 1</option>
+                    <option value="Semester 2">Semester 2</option>
+                    <option value="Semester 3">Semester 3</option>
+                    <option value="Semester 4">Semester 4</option>
+                    <option value="Semester 5">Semester 5</option>
+                    <option value="Semester 6">Semester 6</option>
+                    <option value="Semester 7">Semester 7</option>
+                    <option value="Semester 8">Semester 8</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="profile-daily-hours">Target Daily Study Hours</label>
+                  <input type="number" id="profile-daily-hours" class="form-control" min="1" max="16" value="4" />
+                </div>
+              </div>
+
+              <div style="margin-top: 10px;">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Password & Demo Controls -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Change Password Card -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title"><i class="fa-solid fa-lock" style="color: var(--accent-purple);"></i> Security & Password</h3>
+                  <p class="card-subtitle">Update your password</p>
+                </div>
+              </div>
+
+              <form id="change-password-form">
+                <div class="form-group">
+                  <label class="form-label" for="current-password">Current Password</label>
+                  <input type="password" id="current-password" class="form-control" placeholder="••••••••" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="new-password">New Password</label>
+                  <input type="password" id="new-password" class="form-control" placeholder="Min 6 characters" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="confirm-new-password">Confirm New Password</label>
+                  <input type="password" id="confirm-new-password" class="form-control" placeholder="Re-enter new password" required />
+                </div>
+
+                <button type="submit" class="btn btn-secondary btn-sm" style="width: 100%;">
+                  Update Password
+                </button>
+              </form>
+            </div>
+
+            <!-- College Viva & Demonstration Quick Control Card -->
+            <div class="card" style="border: 1.5px dashed #A5B4FC; background: #F8FAFC;">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title" style="font-size: 1rem;"><i class="fa-solid fa-graduation-cap" style="color: var(--primary);"></i> College Project Viva Demo</h3>
+                  <p class="card-subtitle">Quick reset tool for demonstration</p>
+                </div>
+              </div>
+
+              <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 14px;">
+                Need to quickly demonstrate the application with populated subjects, upcoming tasks, past completed tasks, and Chart.js analytics? Click below to reload the sample B.Tech dataset.
+              </p>
+
+              <button type="button" id="reseed-demo-btn" class="btn btn-outline-primary btn-sm" style="width: 100%;">
+                <i class="fa-solid fa-rotate-right"></i> Reset & Reload Demo Data
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
